@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Conversion</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .focus-outline:focus {
+            outline: 4px solid #0059FF;
+            box-shadow: 0 0 10px #0059FF;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-2">
+    <div class="flex flex-col h-screen">
+        <div class="flex-1 overflow-y-auto p-2">
+            <div class="flex overflow-x-auto p-2">
+                <div class="flex flex-col m-5 p-6 bg-pink-300 rounded-xl shadow-xl text-gray-800 focus-outline" tabindex="0">
+                    <div class="text-2xl font-bold text-center">Monitor CPU / RAM</div>
+                    <div class="text-sm pt-1 pb-1 text-center">Monitore a temperatura do dispositivo sem anúncios.</div>
+                    <div class="flex items-center justify-center pt-2">
+                        <i class="fas fa-download w-6 h-6 download-icon" data-apk="Monitor.apk"></i>
+                        <span class="ml-2 text-base">Baixar</span>
+                    </div>
+                </div>
+                <div class="flex flex-col m-5 p-6 bg-blue-300 rounded-xl shadow-xl text-gray-800 focus-outline" tabindex="0">
+                    <div class="text-2xl font-bold text-center">Net</div>
+                    <div class="text-sm pt-1 pb-1 text-center">Verifique se há conectividade com sua internet em tempo real.</div>
+                    <div class="flex items-center justify-center pt-2">
+                        <i class="fas fa-wifi w-6 h-6 ping-icon"></i>
+                        <span class="ml-2 text-base ping-value">0</span>
+                    </div>
+                </div>
+                <div class="flex flex-col m-5 p-6 bg-green-300 rounded-xl shadow-xl text-gray-800 focus-outline" tabindex="0">
+                    <div class="text-2xl font-bold text-center">Tv ify</div>
+                    <div class="text-sm pt-1 pb-1 text-center">Assistir canais grátis com amplo conteúdo.</div>
+                    <div class="flex items-center justify-center pt-2">
+                        <i class="fas fa-download w-6 h-6 download-icon" data-apk="tv_ify.apk"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col m-5 p-6 bg-yellow-300 rounded-xl shadow-xl text-gray-800 focus-outline" tabindex="0">
+                    <div class="text-2xl font-bold text-center">TokyoCine</div>
+                    <div class="text-sm pt-1 pb-1 text-center">Você gosta de assistir animes? Baixe aplicativo gratuitamente.</div>
+                    <div class="flex items-center justify-center pt-2">
+                        <i class="fas fa-download w-6 h-6 download-icon" data-apk="tokyo_cine.apk"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col m-5 p-6 bg-red-300 rounded-xl shadow-xl text-gray-800 focus-outline" tabindex="0">
+                    <div class="text-2xl font-bold text-center">Blokada</div>
+                    <div class="text-sm pt-1 pb-1 text-center">Bloqueia anúncios indesejados com vários plugins em um só lugar.</div>
+                    <div class="flex items-center justify-center pt-2">
+                        <i class="fas fa-download w-6 h-6 download-icon" data-apk="blokada5.apk"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col m-5 p-6 bg-purple-300 rounded-xl shadow-xl text-gray-800 focus-outline" tabindex="0">
+                    <div class="text-2xl font-bold text-center">IPTV</div>
+                    <div class="text-sm pt-1 pb-1 text-center">Ideal para assistir IPTV no conforto da sua casa.</div>
+                    <div class="flex items-center justify-center pt-2">
+                        <i class="fas fa-download w-6 h-6 download-icon" data-apk="iptv.apk"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col m-5 p-6 bg-purple-400 rounded-xl shadow-xl text-gray-800 focus-outline" tabindex="0">
+                    <div class="text-2xl font-bold text-center">Aurora Store</div>
+                    <div class="text-sm pt-1 pb-1 text-center">Play Store espelhado. Não necessita de conta para acessar.</div>
+                    <div class="flex items-center justify-center pt-2">
+                        <i class="fas fa-download w-6 h-6 download-icon" data-apk="aurora.apk"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col m-5 p-6 bg-teal-300 rounded-xl shadow-xl text-gray-800 focus-outline" tabindex="0" data-url="https://jeiel.pages.dev">
+                <div class="text-2xl font-bold text-center">Versão do aplicativo</div>
+                <div class="text-xs pt-1 pb-1 text-center">Desenvolvido por https://jeiel.pages.dev/</div>
+                <div class="flex items-center justify-center pt-2">
+                    <i class="fas fa-code w-6 h-6"></i>
+                    <span class="ml-2 text-base">1.0.0</span>
+                </div>
+            </div>            
+        </div>
+        <div class="flex items-center justify-center p-2 bg-white">
+            <div class="flex items-center justify-center h-24 w-24 bg-black rounded-full shadow-xl focus-outline" tabindex="0" data-action="close">
+                <i class="fas fa-times text-red-600 text-6xl"></i>
+            </div>
+        </div>                           
+    </div>
+    <script>
+     document.addEventListener('DOMContentLoaded', () => {
+    const focusableElements = '.focus-outline'; 
+    const focusableContent = document.querySelectorAll(focusableElements);
+    let focusedIndex = 0;
+
+    if (focusableContent.length > 0) {
+        focusableContent[0].focus();
+    }
+
+    document.addEventListener('keydown', (event) => {
+        let nextIndex;
+
+        switch (event.key) {
+            case 'ArrowUp':
+            case 'ArrowLeft':
+                nextIndex = (focusedIndex - 1 + focusableContent.length) % focusableContent.length;
+                break;
+            case 'ArrowDown':
+            case 'ArrowRight':
+                nextIndex = (focusedIndex + 1) % focusableContent.length;
+                break;
+            case 'Enter':
+                const focusedElement = focusableContent[focusedIndex];
+                const downloadIcon = focusedElement.querySelector('.download-icon');
+                const url = focusedElement.getAttribute('data-url');
+                const action = focusedElement.getAttribute('data-action');
+                
+                if (downloadIcon) {
+                    const apkName = downloadIcon.getAttribute('data-apk');
+                    const a = document.createElement('a');
+                    a.href = apkName;
+                    a.download = apkName;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                } else if (url) {
+                    window.open(url, '_blank');
+                } else if (action === 'close') {
+                    // Fechamento da janela
+                    window.close();
+                }
+                return;
+            default:
+                return;
+        }
+
+        focusableContent[focusedIndex].blur();
+        focusableContent[nextIndex].focus();
+        focusedIndex = nextIndex;
+    });
+
+    // Função para exibir o ping da internet no ícone de Wi-Fi
+    const pingIcon = document.querySelector('.ping-icon');
+    const pingValue = document.querySelector('.ping-value');
+
+    async function getPing() {
+        try {
+            const start = performance.now();
+            await fetch('https://www.google.com', { method: 'HEAD', mode: 'no-cors' });
+            const end = performance.now();
+            const ping = Math.round(end - start);
+            pingValue.textContent = `${ping} ms`;
+        } catch (error) {
+            pingValue.textContent = 'Erro';
+        }
+    }
+
+    setInterval(getPing, 300); // Atualiza o ping a cada 300 ms
+});
+
+    </script>
+</body>
+</html>
+
