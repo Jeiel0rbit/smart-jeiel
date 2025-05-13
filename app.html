@@ -1,241 +1,206 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Streaming TV Layout</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        .focus-outline:focus {
-            outline: 4px solid #00FF7F;
-            box-shadow: 0 0 15px rgba(0, 255, 127, 0.8);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streaming TV Layout</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    .focus-outline:focus {
+      outline: 4px solid #00FF7F;
+      box-shadow: 0 0 15px rgba(0, 255, 127, 0.8);
+    }
 
-        .focus-outline {
-            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-        }
+    .focus-outline {
+      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    }
 
-        .focus-outline:hover {
-            transform: scale(1.08);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
+    .focus-outline:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
 
-        .focus-outline:focus:hover {
-            background-color: rgba(0, 255, 127, 0.2);
-        }
+    .focus-outline:focus:hover {
+      background-color: rgba(0, 255, 127, 0.1);
+    }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            padding: 1.5rem;
-        }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
 
-        .item {
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #333;
-            border-radius: 10px;
-            color: white;
-            text-align: center;
-            border: 2px solid transparent;
-        }
+    .item {
+      background-color: #1f2937;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      border: 2px solid transparent;
+    }
 
-        .item span {
-            font-size: 1.2rem;
-        }
-
-        .app-info {
-            grid-column: span 4;
-            height: 100px;
-        }
-
-        .footer {
-            height: 80px;
-        }
-
-        @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-    </style>
+    .footer {
+      padding-bottom: 2rem;
+    }
+  </style>
 </head>
-<body class="bg-black text-white">
-    <div class="grid-container">
-        <div class="item focus-outline" tabindex="0">
-            <i class="fas fa-thermometer-half fa-3x"></i>
-            <div>
-                <span>Monitor CPU / RAM</span>
-                <div class="text-sm pt-1 pb-1">Monitore a temperatura do dispositivo sem anúncios.</div>
-                <div class="flex items-center justify-center pt-2">
-                    <i class="fas fa-download w-6 h-6 download-icon" data-apk="Monitor.apk"></i>
-                    <span class="ml-2 text-base">Baixar</span>
-                </div>
-            </div>
-        </div>
-        <div class="item focus-outline" tabindex="0">
-            <i class="fas fa-wifi fa-3x"></i>
-            <div>
-                <span>Net</span>
-                <div class="text-sm pt-1 pb-1">Verifique se há conectividade com sua internet em tempo real.</div>
-                <div class="flex items-center justify-center pt-2">
-                    <span class="ping-value">0 ms</span>
-                </div>
-            </div>
-        </div>
-        <div class="item focus-outline" tabindex="0">
-            <i class="fas fa-tv fa-3x"></i>
-            <div>
-                <span>Tv ify</span>
-                <div class="text-sm pt-1 pb-1">Assistir canais grátis com amplo conteúdo.</div>
-                <div class="flex items-center justify-center pt-2">
-                    <i class="fas fa-download w-6 h-6 download-icon" data-apk="tv_ify.apk"></i>
-                </div>
-            </div>
-        </div>
-        <div class="item focus-outline" tabindex="0">
-            <i class="fas fa-film fa-3x"></i>
-            <div>
-                <span>TokyoCine</span>
-                <div class="text-sm pt-1 pb-1">Você gosta de assistir animes? Baixe aplicativo gratuitamente.</div>
-                <div class="flex items-center justify-center pt-2">
-                    <i class="fas fa-download w-6 h-6 download-icon" data-apk="tokyo_cine.apk"></i>
-                </div>
-            </div>
-        </div>
-        <div class="item focus-outline" tabindex="0">
-            <i class="fas fa-ban fa-3x"></i>
-            <div>
-                <span>Blokada</span>
-                <div class="text-sm pt-1 pb-1">Bloqueia anúncios indesejados com vários plugins em um só lugar.</div>
-                <div class="flex items-center justify-center pt-2">
-                    <i class="fas fa-download w-6 h-6 download-icon" data-apk="blokada5.apk"></i>
-                </div>
-            </div>
-        </div>
-        <div class="item focus-outline" tabindex="0">
-            <i class="fas fa-tv fa-3x"></i>
-            <div>
-                <span>IPTV</span>
-                <div class="text-sm pt-1 pb-1">Ideal para assistir IPTV no conforto da sua casa.</div>
-                <div class="flex items-center justify-center pt-2">
-                    <i class="fas fa-download w-6 h-6 download-icon" data-apk="iptv.apk"></i>
-                </div>
-            </div>
-        </div>
-        <div class="item focus-outline" tabindex="0">
-            <i class="fas fa-store fa-3x"></i>
-            <div>
-                <span>Aurora Store</span>
-                <div class="text-sm pt-1 pb-1">Play Store espelhado. Não necessita de conta para acessar.</div>
-                <div class="flex items-center justify-center pt-2">
-                    <i class="fas fa-download w-6 h-6 download-icon" data-apk="aurora.apk"></i>
-                </div>
-            </div>
-        </div>
+<body class="bg-black text-white font-sans">
+  <div class="grid-container">
+    <!-- Cards -->
+    <template id="app-card">
       <div class="item focus-outline" tabindex="0">
-            <i class="fas fa-film fa-3x"></i>
-            <div>
-                <span>Youtube</span>
-                <div class="text-sm pt-1 pb-1">Acesse o Youtube.</div>
-                <div class="flex items-center justify-center pt-2">
-                    <i class="fas fa-film w-6 h-6 download-icon" data-apk="https://youtube.com"></i>
-                </div>
-            </div>
+        <i class="icon fa-3x mb-2"></i>
+        <div>
+          <span class="title font-semibold text-lg block mb-1"></span>
+          <div class="description text-sm text-gray-300 mb-2"></div>
+          <div class="flex justify-center items-center space-x-2 action"></div>
         </div>
-        <div class="item app-info focus-outline" tabindex="0" data-url="https://jeiel.pages.dev">
-            <i class="fas fa-info-circle fa-3x"></i>
-            <div>
-                <span>Versão do aplicativo: 1.0.0</span>
-                <div class="text-xs pt-1 pb-1">Desenvolvido por https://jeiel.pages.dev/</div>
-            </div>
-        </div>
-    </div>
-    <div class="footer flex items-center justify-center mt-6">
-        <div class="focus-outline h-16 w-16 bg-red-600 rounded-full flex items-center justify-center" tabindex="0" data-action="close">
-            <i class="fas fa-times text-white text-3xl"></i>
-        </div>
+      </div>
+    </template>
+
+    <div class="item focus-outline" tabindex="0">
+      <i class="fas fa-thermometer-half fa-3x mb-2"></i>
+      <span class="text-lg font-semibold">Monitor CPU / RAM</span>
+      <p class="text-sm text-gray-300 mt-1 mb-2">Monitore a temperatura do dispositivo sem anúncios.</p>
+      <div class="flex items-center justify-center space-x-2">
+        <i class="fas fa-download download-icon cursor-pointer" data-apk="Monitor.apk"></i>
+        <span>Baixar</span>
+      </div>
     </div>
 
-    <script>
-     document.addEventListener('DOMContentLoaded', () => {
-        const focusableElements = '.focus-outline'; 
-        const focusableContent = document.querySelectorAll(focusableElements);
-        let focusedIndex = 0;
+    <div class="item focus-outline" tabindex="0">
+      <i class="fas fa-wifi fa-3x mb-2"></i>
+      <span class="text-lg font-semibold">Net</span>
+      <p class="text-sm text-gray-300 mt-1 mb-2">Verifique conectividade com sua internet em tempo real.</p>
+      <div class="flex items-center justify-center">
+        <span class="ping-value">0 ms</span>
+      </div>
+    </div>
 
-        if (focusableContent.length > 0) {
-            focusableContent[0].focus();
-        }
+    <div class="item focus-outline" tabindex="0">
+      <i class="fas fa-tv fa-3x mb-2"></i>
+      <span class="text-lg font-semibold">Tv ify</span>
+      <p class="text-sm text-gray-300 mt-1 mb-2">Assista canais grátis com amplo conteúdo.</p>
+      <div class="flex items-center justify-center">
+        <i class="fas fa-download download-icon cursor-pointer" data-apk="tv_ify.apk"></i>
+      </div>
+    </div>
 
-        document.addEventListener('keydown', (event) => {
-            let nextIndex;
+    <div class="item focus-outline" tabindex="0">
+      <i class="fas fa-film fa-3x mb-2"></i>
+      <span class="text-lg font-semibold">TokyoCine</span>
+      <p class="text-sm text-gray-300 mt-1 mb-2">Gosta de animes? Baixe gratuitamente.</p>
+      <div class="flex items-center justify-center">
+        <i class="fas fa-download download-icon cursor-pointer" data-apk="tokyo_cine.apk"></i>
+      </div>
+    </div>
 
-            switch (event.key) {
-                case 'ArrowUp':
-                    nextIndex = (focusedIndex - 4 + focusableContent.length) % focusableContent.length;
-                    break;
-                case 'ArrowDown':
-                    nextIndex = (focusedIndex + 4) % focusableContent.length;
-                    break;
-                case 'ArrowLeft':
-                    nextIndex = (focusedIndex - 1 + focusableContent.length) % focusableContent.length;
-                    break;
-                case 'ArrowRight':
-                    nextIndex = (focusedIndex + 1) % focusableContent.length;
-                    break;
-                case 'Enter':
-                    const focusedElement = focusableContent[focusedIndex];
-                    const downloadIcon = focusedElement.querySelector('.download-icon');
-                    const url = focusedElement.getAttribute('data-url');
-                    const action = focusedElement.getAttribute('data-action');
-                    
-                    if (downloadIcon) {
-                        const apkName = downloadIcon.getAttribute('data-apk');
-                        const a = document.createElement('a');
-                        a.href = apkName;
-                        a.download = apkName;
-                        document.body.appendChild(a);
-                        a.click();
-                        document.body.removeChild(a);
-                    } else if (url) {
-                        window.open(url, '_blank');
-                    } else if (action === 'close') {
-                        window.close();
-                    }
-                    return;
-                default:
-                    return;
+    <div class="item focus-outline" tabindex="0">
+      <i class="fas fa-ban fa-3x mb-2"></i>
+      <span class="text-lg font-semibold">Blokada</span>
+      <p class="text-sm text-gray-300 mt-1 mb-2">Bloqueia anúncios com vários plugins.</p>
+      <div class="flex items-center justify-center">
+        <i class="fas fa-download download-icon cursor-pointer" data-apk="blokada5.apk"></i>
+      </div>
+    </div>
+
+    <div class="item focus-outline" tabindex="0">
+      <i class="fas fa-tv fa-3x mb-2"></i>
+      <span class="text-lg font-semibold">IPTV</span>
+      <p class="text-sm text-gray-300 mt-1 mb-2">Ideal para assistir IPTV em casa.</p>
+      <div class="flex items-center justify-center">
+        <i class="fas fa-download download-icon cursor-pointer" data-apk="iptv.apk"></i>
+      </div>
+    </div>
+
+    <div class="item focus-outline" tabindex="0">
+      <i class="fas fa-store fa-3x mb-2"></i>
+      <span class="text-lg font-semibold">Aurora Store</span>
+      <p class="text-sm text-gray-300 mt-1 mb-2">Play Store alternativa sem conta Google.</p>
+      <div class="flex items-center justify-center">
+        <i class="fas fa-download download-icon cursor-pointer" data-apk="aurora.apk"></i>
+      </div>
+    </div>
+
+    <div class="item focus-outline" tabindex="0">
+      <i class="fas fa-film fa-3x mb-2"></i>
+      <span class="text-lg font-semibold">YouTube</span>
+      <p class="text-sm text-gray-300 mt-1 mb-2">Acesse o YouTube.</p>
+      <div class="flex items-center justify-center">
+        <i class="fas fa-play-circle download-icon cursor-pointer" data-url="https://youtube.com"></i>
+      </div>
+    </div>
+
+    <div class="item focus-outline col-span-full text-center" tabindex="0" data-url="https://jeiel.pages.dev">
+      <i class="fas fa-info-circle fa-3x mb-2"></i>
+      <span class="text-base font-semibold">Versão do aplicativo: 1.0.0</span>
+      <p class="text-xs text-gray-400">Desenvolvido por <a href="https://jeiel.pages.dev" class="underline">jeiel.pages.dev</a></p>
+    </div>
+  </div>
+
+  <div class="footer flex justify-center">
+    <div class="focus-outline h-16 w-16 bg-red-600 rounded-full flex items-center justify-center cursor-pointer" tabindex="0" data-action="close">
+      <i class="fas fa-times text-white text-3xl"></i>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const focusableContent = document.querySelectorAll('.focus-outline');
+      let focusedIndex = 0;
+      if (focusableContent.length > 0) focusableContent[0].focus();
+
+      document.addEventListener('keydown', (event) => {
+        let nextIndex;
+        switch (event.key) {
+          case 'ArrowUp': nextIndex = (focusedIndex - 3 + focusableContent.length) % focusableContent.length; break;
+          case 'ArrowDown': nextIndex = (focusedIndex + 3) % focusableContent.length; break;
+          case 'ArrowLeft': nextIndex = (focusedIndex - 1 + focusableContent.length) % focusableContent.length; break;
+          case 'ArrowRight': nextIndex = (focusedIndex + 1) % focusableContent.length; break;
+          case 'Enter':
+            const el = focusableContent[focusedIndex];
+            const download = el.querySelector('.download-icon');
+            const url = el.getAttribute('data-url');
+            const action = el.getAttribute('data-action');
+            if (download) {
+              const apk = download.getAttribute('data-apk');
+              const a = document.createElement('a');
+              a.href = apk;
+              a.target = '_blank';
+              a.download = apk.endsWith('.apk') ? apk : '';
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+            } else if (url) {
+              window.open(url, '_blank');
+            } else if (action === 'close') {
+              window.close();
             }
-
-            focusableContent[focusedIndex].blur();
-            focusableContent[nextIndex].focus();
-            focusedIndex = nextIndex;
-        });
-
-        const pingIcon = document.querySelector('.ping-icon');
-        const pingValue = document.querySelector('.ping-value');
-
-        async function getPing() {
-            try {
-                const start = performance.now();
-                await fetch('https://www.google.com', { method: 'HEAD', mode: 'no-cors' });
-                const end = performance.now();
-                const ping = Math.round(end - start);
-                pingValue.textContent = `${ping} ms`;
-            } catch (error) {
-                pingValue.textContent = 'Erro';
-            }
+            return;
+          default: return;
         }
+        focusableContent[focusedIndex].blur();
+        focusableContent[nextIndex].focus();
+        focusedIndex = nextIndex;
+      });
 
-        setInterval(getPing, 300); // Atualiza o ping a cada 300 ms
+      const pingValue = document.querySelector('.ping-value');
+      async function getPing() {
+        try {
+          const start = performance.now();
+          await fetch('https://www.google.com', { method: 'HEAD', mode: 'no-cors' });
+          const end = performance.now();
+          pingValue.textContent = `${Math.round(end - start)} ms`;
+        } catch {
+          pingValue.textContent = 'Erro';
+        }
+      }
+      setInterval(getPing, 1000);
     });
-    </script>
+  </script>
 </body>
 </html>
