@@ -1,0 +1,1 @@
+Desenvolvido para projetor Hy3000. Em breve, mais detalhes serão adicionados aqui.
